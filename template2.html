@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Dwayne Hans Jr - Cybersecurity Expert & Data Architect</title>
+<!-- Google Fonts for a futuristic look -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
+<style>
+  /* Reset and CSS Variables for Cyber Theme */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --cyber-cyan: #00ffff;
+    --cyber-magenta: #ff00ff;
+    --cyber-yellow: #ffff00;
+    --neon-green: #39ff14;
+    --deep-black: #000;
+    --dark-gray: #0a0a0a;
+    --mid-gray: #1a1a1a;
+    --light-gray: #2a2a2a;
+    --text-white: #fff;
+    --text-gray: #ccc;
+  }
+
+  body {
+    font-family: 'Rajdhani', sans-serif;
+    background: var(--deep-black);
+    color: var(--text-white);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* Animated Background */
+  .cyber-grid {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: 
+      linear-gradient(rgba(0,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,255,255,0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 0;
+    animation: gridScroll 20s linear infinite;
+  }
+  @keyframes gridScroll {
+    0% { background-position: 0 0; }
+    100% { background-position: 50px 50px; }
+  }
+
+  /* Scanlines for Cyber Effect */
+  .scanlines {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: repeating-linear-gradient(0deg, rgba(0,255,255,0.03) 0px, transparent 2px, transparent 4px);
+    z-index: 1;
+    animation: scanlineMove 8s linear infinite;
+  }
+  @keyframes scanlineMove {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(100px); }
+  }
+
+  /* Particles for Space Effect */
+  .particles {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    overflow: hidden; pointer-events: none; z-index: 0;
+  }
+  .particle {
+    position: absolute; width: 2px; height: 2px;
+    background: var(--cyber-cyan);
+    opacity: 0.5;
+    animation: particleFloat 15s linear infinite;
+  }
+  @keyframes particleFloat {
+    0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+    10% { opacity: 0.5; }
+    90% { opacity: 0.5; }
+    100% { transform: translateY(-100px) translateX(100px); opacity: 0; }
+  }
+
+  /* Container for Resume */
+  .resume-wrapper {
+    position: relative;
+    z-index: 2;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  /* Terminal Header for Tech Look */
+  .terminal-header {
+    background: var(--dark-gray);
+    border: 2px solid var(--cyber-cyan);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 20px rgba(0,255,255,0.3), inset 0 0 20px rgba(0,255,255,0.05);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 14px;
+    color: var(--neon-green);
+  }
+  .terminal-line {
+    margin-bottom: 5px;
+  }
+  .cursor {
+    display: inline-block; width: 10px; height: 18px; background: var(--cyber-cyan);
+    animation: blink 1s infinite; margin-left: 5px;
+  }
+  @keyframes blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+  }
+
+  /* Hero: Avatar & Intro */
+  .hero {
+    display: grid; grid-template-columns: 300px 1fr; gap: 40px; margin-bottom: 40px;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .avatar-container {
+    position: relative;
+  }
+  .avatar-frame {
+    position: relative; width: 300px; height: 300px;
+    background: var(--mid-gray);
+    border: 3px solid var(--cyber-cyan);
+    box-shadow: 0 0 30px rgba(0,255,255,0.5), inset 0 0 30px rgba(0,255,255,0.1);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
+    overflow: hidden;
+    animation: glowPulse 3s ease-in-out infinite;
+  }
+  @keyframes glowPulse {
+    0%, 100% {
+      box-shadow: 0 0 30px rgba(0,255,255,0.5), inset 0 0 30px rgba(0,255,255,0.1);
+      border-color: var(--cyber-cyan);
+    }
+    50% {
+      box-shadow: 0 0 50px rgba(255,0,255,0.6), inset 0 0 40px rgba(255,0,255,0.2);
+      border-color: var(--cyber-magenta);
+    }
+  }
+  .avatar-photo {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .avatar-placeholder {
+    width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+    font-family: 'Orbitron', sans-serif; font-size: 80px; font-weight: 900;
+    background: linear-gradient(135deg, var(--cyber-cyan), var(--cyber-magenta));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .status-indicators {
+    position: absolute; bottom: 20px; right: 20px; display: flex; gap: 10px;
+  }
+  .status-dot {
+    width: 12px; height: 12px; border-radius: 50%; background: var(--neon-green);
+    box-shadow: 0 0 10px var(--neon-green);
+    animation: statusPulse 2s infinite;
+  }
+  @keyframes statusPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+  .hero-content {
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .glitch-text {
+    font-family: 'Orbitron', sans-serif; font-size: 64px; font-weight: 900; color: var(--text-white);
+    text-transform: uppercase; margin-bottom: 20px; animation: glitch 5s infinite;
+  }
+  @keyframes glitch {
+    0%, 90%, 100% {
+      text-shadow: 2px 2px var(--cyber-cyan), -2px -2px var(--cyber-magenta);
+    }
+    92% {
+      text-shadow: -2px 2px var(--cyber-magenta), 2px -2px var(--cyber-cyan);
+    }
+    94% {
+      text-shadow: 4px 0 var(--cyber-cyan), -4px 0 var(--cyber-magenta);
+    }
+  }
+  .subtitle {
+    font-size: 24px; color: var(--cyber-cyan); font-weight: 600; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 3px;
+  }
+  .tagline {
+    font-size: 18px; color: var(--text-gray); line-height: 1.8; margin-bottom: 30px; border-left: 3px solid var(--cyber-magenta); padding-left: 20px;
+  }
+
+  /* Stats Grid */
+  .stats-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 40px;
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .stat-box {
+    background: var(--mid-gray); border: 2px solid var(--cyber-cyan); padding: 25px; text-align: center; position: relative; overflow: hidden; transition: all 0.3s ease;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  }
+  .stat-box::before {
+    content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: linear-gradient(45deg, transparent, rgba(0,255,255,0.1), transparent); transform: rotate(45deg); transition: all 0.5s;
+  }
+  .stat-box:hover::before { left: 100%; }
+  .stat-box:hover {
+    transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,255,255,0.4); border-color: var(--cyber-magenta);
+  }
+  .stat-number {
+    font-family: 'Orbitron', sans-serif; font-size: 48px; font-weight: 900; color: var(--cyber-cyan); margin-bottom: 10px;
+  }
+  .stat-label {
+    font-size: 14px; color: var(--text-gray); text-transform: uppercase; letter-spacing: 2px;
+  }
+
+  /* Contact Panel */
+  .contact-panel {
+    background: linear-gradient(135deg, var(--dark-gray), var(--mid-gray));
+    border: 2px solid var(--cyber-magenta);
+    padding: 20px;
+    margin-bottom: 40px;
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;
+    box-shadow: 0 0 20px rgba(255,0,255,0.3);
+  }
+  .contact-item {
+    display: flex; align-items: center; gap: 10px; font-size: 16px; transition: all 0.3s ease; cursor: pointer;
+  }
+  .contact-item:hover {
+    transform: scale(1.05); color: var(--cyber-cyan);
+  }
+  .contact-icon {
+    font-size: 24px; color: var(--cyber-cyan);
+  }
+  .contact-item a {
+    color: var(--text-white); text-decoration: none; transition: color 0.3s;
+  }
+  .contact-item a:hover {
+    color: var(--cyber-cyan); text-shadow: 0 0 10px var(--cyber-cyan);
+  }
+
+  /* Content Grid for Experience & Projects */
+  .content-grid {
+    display: grid; grid-template-columns: 1fr 400px; gap: 30px; margin-bottom: 40px;
+  }
+
+  /* Sections Styling */
+  .section {
+    background: var(--dark-gray); border: 2px solid var(--cyber-cyan); padding: 30px; margin-bottom: 30px; position: relative; box-shadow: 0 0 15px rgba(0,255,255,0.2);
+    animation: fadeInSection 0.8s ease-out;
+  }
+  @keyframes fadeInSection {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  .section::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+    background: linear-gradient(90deg, var(--cyber-cyan), var(--cyber-magenta), var(--cyber-yellow));
+  }
+  .section-header {
+    display: flex; align-items: center; gap: 15px; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 2px solid var(--light-gray);
+  }
+  .section-title {
+    font-family: 'Orbitron', sans-serif; font-size: 28px; font-weight: 700; color: var(--text-white); text-transform: uppercase;
+  }
+  /* Experience Entries hover for interactivity */
+  .experience-entry {
+    margin-bottom: 35px; padding: 25px; background: var(--mid-gray); border-left: 4px solid var(--cyber-magenta); transition: all 0.3s ease; cursor: pointer; position: relative;
+  }
+  .experience-entry:hover {
+    border-left-color: var(--cyber-cyan); box-shadow: -5px 0 15px rgba(0,255,255,0.3); transform: translateX(10px);
+  }
+  .entry-header {
+    display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; gap: 20px;
+  }
+  .entry-title {
+    font-size: 22px; font-weight: 700; color: var(--cyber-cyan); margin-bottom: 5px;
+  }
+  .entry-company {
+    font-size: 18px; color: var(--cyber-magenta); font-weight: 600;
+  }
+  .entry-date {
+    font-family: 'Share Tech Mono', monospace; font-size: 14px; color: var(--neon-green); background: var(--dark-gray); padding: 8px 15px; border: 1px solid var(--neon-green); white-space: nowrap;
+  }
+  .entry-description {
+    color: var(--text-gray); margin-bottom: 15px; font-size: 16px; line-height: 1.7;
+  }
+  /* Tech Badges for Projects & Skills */
+  .tech-badge {
+    background: var(--dark-gray); color: var(--neon-green); padding: 5px 12px; border: 1px solid var(--neon-green); font-size: 12px; font-family: 'Share Tech Mono', monospace; border-radius: 4px; margin: 4px; transition: all 0.3s;
+  }
+  .tech-badge:hover {
+    background: var(--cyber-cyan); color: var(--deep-black); transform: translateY(-2px); box-shadow: 0 0 10px var(--cyber-cyan);
+  }
+  /* Project Cards */
+  .project-card {
+    background: var(--mid-gray); border: 2px solid var(--cyber-magenta); padding: 25px; margin-bottom: 20px; border-radius: 8px; transition: all 0.3s ease; cursor: pointer; position: relative; overflow: hidden;
+  }
+  .project-card::before {
+    content: ''; position: absolute; top: -2px; left: -2px; right: -2px; bottom: -2px; background: linear-gradient(45deg, var(--cyber-cyan), var(--cyber-magenta), var(--cyber-yellow)); opacity: 0; transition: opacity 0.3s;
+  }
+  .project-card:hover::before {
+    opacity: 0.3;
+  }
+  .project-card:hover {
+    transform: scale(1.02); box-shadow: 0 10px 30px rgba(255,0,255,0.4);
+  }
+  .project-title {
+    font-size: 20px; font-weight: 700; color: var(--cyber-cyan); display: flex; align-items: center; gap: 10px; margin-bottom: 12px;
+  }
+  /* Call-to-Action section */
+  .cta-section {
+    background: linear-gradient(135deg, var(--dark-gray), var(--mid-gray));
+    border: 3px solid var(--cyber-magenta);
+    padding: 50px;
+    margin-top: 50px;
+    text-align: center;
+    position: relative;
+  }
+  .cta-title {
+    font-family: 'Orbitron', sans-serif; font-size: 36px; font-weight: 900; color: var(--cyber-cyan); margin-bottom: 20px; text-transform: uppercase; animation: pulseGlow 2s infinite;
+  }
+  @keyframes pulseGlow {
+    0%, 100% { text-shadow: 0 0 10px var(--cyber-cyan); }
+    50% { text-shadow: 0 0 20px var(--cyber-cyan), 0 0 40px var(--cyber-cyan); }
+  }
+  .cta-text {
+    font-size: 18px; color: var(--text-gray); margin-bottom: 30px; line-height: 1.8; max-width: 800px; margin-left: auto; margin-right: auto;
+  }
+  .cta-button {
+    display: inline-block; padding: 20px 50px; background: linear-gradient(45deg, var(--cyber-cyan), var(--cyber-magenta));
+    color: #000; font-size: 18px; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; text-decoration: none; transition: all 0.3s; position: relative; overflow: hidden;
+  }
+  .cta-button::after {
+    content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 0; height: 0; background: var(--cyber-yellow); border-radius: 50%; transition: width 0.5s, height 0.5s; z-index: -1;
+  }
+  .cta-button:hover::after {
+    width: 300px; height: 300px;
+  }
+  .cta-button:hover {
+    transform: scale(1.05); box-shadow: 0 0 30px rgba(0,255,255,0.6);
+  }
+  /* Responsive adjustments */
+  @media(max-width: 1400px) {
+    .content-grid { grid-template-columns: 1fr 350px; }
+  }
+  @media(max-width: 768px) {
+    .hero { grid-template-columns: 1fr; gap: 20px; }
+    .avatar-frame { width: 250px; height: 250px; margin: 0 auto; }
+    .stats-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Background effects -->
+<div class="cyber-grid"></div>
+<div class="scanlines"></div>
+<div class="particles" id="particles"></div>
+
+<div class="resume-wrapper">
+
+  <!-- Terminal header -->
+  <div class="terminal-header">
+    <div class="terminal-line">root@cybersecurity:~$ sudo whoami</div>
+    <div class="terminal-line">> Dwayne_Hans_Jr | Data_Operations_Architect</div>
+    <div class="terminal-line">root@cybersecurity:~$ status --security</div>
+    <div class="terminal-line">> ACTIVE | DoD_Cleared | Quantum Expert</div>
+    <div class="terminal-line">root@cybersecurity:~$ initialize_legend<span class="cursor"></span></div>
+  </div>
+
+  <!-- Hero section with avatar -->
+  <section class="hero">
+    <div class="avatar-container">
+      <div class="avatar-frame" id="avatarFrame">
+        <div id="photoDisplay" class="avatar-placeholder">DH</div>
+      </div>
+      <div class="status-indicators">
+        <div class="status-dot"></div>
+        <div class="status-dot" style="animation-delay: 0.5s;"></div>
+        <div class="status-dot" style="animation-delay: 1s;"></div>
+      </div>
+    </div>
+    <div class="hero-content">
+      <h1 class="glitch-text">DWAYNE HANS JR</h1>
+      <div class="subtitle">Cyber Scientist · Quantum Cryptographer · Data Architect</div>
+      <p class="tagline">
+        <strong>MISSION OBJECTIVE:</strong> Building scalable, cross-functional systems with enterprise cryptography, AI threat modeling, blockchain, and digital rights innovation to revolutionize cybersecurity.
+      </p>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <div class="stats-grid">
+    <div class="stat-box">
+      <div class="stat-number">27</div>
+      <div class="stat-label">Patents Filed</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">+627</div>
+      <div class="stat-label">Tech Contributions</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">12+</div>
+      <div class="stat-label">Certifications</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">1 of 2</div>
+      <div class="stat-label">NSA Certified</div>
+    </div>
+  </div>
+
+  <!-- Contact and Job Postings -->
+  <div class="contact-panel">
+    <div class="contact-item"><span class="contact-icon">✉️</span> <a href="mailto:hansd5889@gmail.com">hansd5889@gmail.com</a></div>
+    <div class="contact-item"><span class="contact-icon">📞</span> (509) 205-5120</div>
+    <div class="contact-item"><span class="contact-icon">💻</span> <a href="https://github.com/dcar2121" target="_blank">github.com/dcar2121</a></div>
+    <div class="contact-item"><span class="contact-icon">🔗</span> <a href="https://linkedin.com/in/dwaynehans0998361b7" target="_blank">LinkedIn Profile</a></div>
+  </div>
+
+  <!-- Job Postings fetched from API -->
+  <section class="section" id="jobs-section">
+    <div class="section-header"><h2 class="section-title">Job Postings</h2></div>
+    <div id="jobs-container" style="color:#ccc;">Loading job postings...</div>
+  </section>
+
+  <!-- Experience & Projects (your existing content, you can insert your full previous content here) -->
+  <!-- For brevity, I omit it here, but include your experience and projects sections as you had before -->
+
+  <!-- Call to Action -->
+  <section class="cta-section">
+    <h2 class="cta-title">Ready to Fortify Your Digital Future?</h2>
+    <p class="cta-text">Let's discuss how quantum cryptography, AI threat detection, and blockchain can revolutionize your security. Deploy enterprise architecture, penetration testing, and cutting-edge DRM solutions today.</p>
+    <a href="mailto:hansd5889@gmail.com" class="cta-button"><span>INITIATE SECURE CONNECTION</span></a>
+  </section>
+
+</div>
+
+<!-- Script for particles and fetching jobs -->
+<script>
+function createParticles() {
+  const container = document.getElementById('particles');
+  for (let i=0; i<50; i++) {
+    const p = document.createElement('div');
+    p.className='particle';
+    p.style.left= Math.random()*100+'%';
+    p.style.top= Math.random()*100+'%';
+    p.style.animationDelay= Math.random()*15+'s';
+    p.style.animationDuration= (Math.random()*10+10)+'s';
+    container.appendChild(p);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  createParticles();
+
+  // Fetch job postings
+  fetch('https://api.apify.com/v2/actor-runs?token=apify_api_frb19GcPnRfXBpdVWgmHEOZDOgqdLF1z')
+    .then(res => res.json())
+    .then(data => {
+      const container = document.getElementById('jobs-container');
+      container.innerHTML = ''; // Clear loading message
+      if (!Array.isArray(data) || data.length === 0) {
+        container.innerHTML = '<p style="color:#ccc;">No job postings available.</p>';
+        return;
+      }
+
+      // Loop through jobs and create HTML elements
+      data.forEach(job => {
+        const jobDiv = document.createElement('div');
+        jobDiv.style.border='1px solid #444'; 
+        jobDiv.style.borderRadius='8px'; 
+        jobDiv.style.padding='15px'; 
+        jobDiv.style.marginBottom='10px';
+
+        jobDiv.innerHTML = `
+          <h3 style="color:${getComputedStyle(document.documentElement).getPropertyValue('--cyber-cyan')}; margin-bottom:10px;">${job['lever_job']}</h3>
+          <p style="color:#ccc;">Type: ${job['fields'][1] || 'N/A'}</p>
+          <p style="color:#ccc;">Location: ${job['fields'][3]}</p>
+          <p style="color:#ccc;">Posted: ${new Date(job['createdAt']).toLocaleString()}</p>
+          <a href="${job['url']}" target="_blank" style="display:inline-block;margin-top:10px;padding:10px 15px;background:linear-gradient(45deg, var(--cyber-cyan), var(--cyber-magenta)); color:#000; border-radius:5px;text-decoration:none;">Apply Now</a>
+        `;
+        container.appendChild(jobDiv);
+      });
+    })
+    .catch(err => {
+      document.getElementById('jobs-container').innerHTML = '<p style="color:#f88;">Failed to load jobs.</p>';
+      console.error('Error fetching jobs:', err);
+    });
+});
+</script>
+</body>
+</html>
